@@ -27,5 +27,19 @@ are described in the CodeBook.md file.
 ***Important*** The script utilizes the plyr package. Use `install.packages("plyr")` to install that package, if necessary.
 
 
-The script was extensively commented for documentation purposes.
+The script was extensively commented for documentation purposes.  In summary, the script:
+
+1. downloads and unzips the data to the current working directory;
+2. reads in the activity and feature labels in the root directory of the dataset;
+3. reads in the training and test data from their respective subdirectories;
+4. prefixes the features data with its associated subject and activity -- this is done by simply column binding the datasets, because the data in the separate files are ordered the same;
+5. appends them to create one large dataset;
+6. uses grep to find the columns which are the mean and standard deviation features;
+7. extracts just those columns, with their associated subject and activity, to a new dataframe;
+8. uses the ddply function to take the mean of the columns for every subject and activity;
+9. renames the columns to show that we've taken the mean of them;
+10. outputs the resulting dataframe to a tab-delimited text file.
+
+See comments in the code for more information.
+
 
